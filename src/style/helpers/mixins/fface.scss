@@ -1,0 +1,12 @@
+@mixin fface($font-family, $file-name, $weight: 400, $style: normal) {
+  @font-face {
+    font-family: $font-family;
+    font-display: swap;
+    font-weight: $weight;
+    font-style: $style;
+    src: url('../fonts/#{$file-name}.eot');
+    src: url('../fonts/#{$file-name}.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/#{$file-name}.woff') format('woff'),
+    url('../fonts/#{$file-name}.woff2') format('woff2');
+  }
+}
