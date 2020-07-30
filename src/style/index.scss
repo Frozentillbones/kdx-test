@@ -1,3 +1,6 @@
+@import './helpers/variables';
+@import './helpers/functions';
+@import './helpers/mixins';
 * {
   margin: 0;
   padding: 0;
@@ -10,4 +13,56 @@
 
 body {
   font-family: 'Roboto', sans-serif;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+.header,
+.footer {
+  text-align: center;
+}
+
+.header {
+  &__top {
+    background-color: #282d30;
+    h1 {
+      padding: get4BasedSize(2) 0;
+      margin: 0 auto;
+      width: 80%;
+      max-width: 480px;
+    }
+  }
+  &__bottom {
+    p {
+      font-size: get4BasedSize(11);
+      font-weight: 700;
+      margin: get4BasedSize(8) 0;
+    }
+  }
+}
+
+.main {
+  max-width: $desktop;
+  min-height: 100vh;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.footer {
+  color: #ffffff;
+  background-color: #282d30;
+  &__copyright {
+    padding: 20px 0;
+    font-size: 12px;
+    span {
+      display: block;
+    }
+  }
+}
+
+.visually-hidden {
+  @include visually-hidden();
 }

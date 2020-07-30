@@ -1,0 +1,15 @@
+.cars {
+  width: 100%;
+  border-collapse: collapse;
+  td {
+    font-size: 16px;
+  }
+  &__caption {
+    background-color: #c4092f;
+    color: #ffffff;
+    text-align: center;
+    td {
+      padding: 16px 0;
+    }
+  }
+}
