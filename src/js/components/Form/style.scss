@@ -1,0 +1,105 @@
+@import '../../../style/helpers/mixins';
+@import '../../../style/helpers/functions.scss';
+form {
+  padding: 0 get4BasedSize(4);
+}
+.input-row,
+.select-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  .text-input {
+    flex-basis: 48%;
+    @include child(1) {
+      flex-basis: 100%;
+    }
+    @include responsive(tablet) {
+      flex-basis: 32%;
+      @include child(1) {
+        flex-basis: 32%;
+      }
+    }
+  }
+}
+
+.select-row {
+  .colors {
+    flex-basis: 100%;
+    &__label {
+      margin: 0 0 get4BasedSize(2);
+    }
+    .color-radios {
+      width: 50%;
+      display: flex;
+      justify-content: space-between;
+    }
+    margin: 0 0 get4BasedSize(8);
+  }
+  .select,
+  .send {
+    flex-basis: 48%;
+    padding: get4BasedSize(4) 0;
+  }
+  .select {
+    color: darken($color: #dcdcdc, $amount: 20);
+    border: get4BasedSize(.5) solid #dcdcdc;
+  }
+  .send {
+    border: none;
+    background-color: #c4092f;
+    text-transform: uppercase;
+    border-radius: get4BasedSize();
+    color: #ffffff;
+    font-weight: 700;
+  }
+}
+
+.color-radio {
+  &__label {
+    display: block;
+    border: 1px solid #dcdc;
+    border-radius: 50%;
+    width: get4BasedSize(5);
+    height: get4BasedSize(5);
+  }
+}
+
+.text-input {
+  position: relative;
+  margin: 0 0 get4BasedSize(8);
+  &__label {
+    color: grey;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: get4BasedSize(2);
+    font-size: get4BasedSize(4);
+    transition: all .32s ease-in;
+    &--focus {
+      top: get4BasedSize(-2);
+      font-size: get4BasedSize(3);
+    }
+    &--textarea {
+      top: 32%;
+      &--focus {
+        top: get4BasedSize(-2);
+        font-size: get4BasedSize(3);
+      }
+    }
+  }
+
+  &__input,
+  &__textarea {
+    border-color: #dcdcdc;
+    border-style: solid;
+    border-bottom: get4BasedSize(.5) solid #dcdcdc;
+    border-radius: get4BasedSize();
+    padding: get4BasedSize(3) get4BasedSize(2);
+    width: 100%;
+    transition: all .32s ease-in;
+    &--focus {
+      border-bottom-color: darken($color: #dcdcdc, $amount: 30);
+      border-bottom-width: get4BasedSize();
+    }
+  }
+}

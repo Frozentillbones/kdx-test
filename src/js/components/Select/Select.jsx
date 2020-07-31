@@ -13,3 +13,11 @@ export default function Select(props) {
     </select>
   );
 }
+
+Select.propTypes = {
+
+};
+
+Select.defaultProps = {
+  className: 'select'
+};

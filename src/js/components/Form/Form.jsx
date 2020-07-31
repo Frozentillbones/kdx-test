@@ -2,8 +2,11 @@ import React from 'react';
 import TextInput from './../TextInput/TextInput';
 import Checkbox from '../Checkbox/Checkbox';
 import Select from '../Select/Select';
+import Radios from '../Radios/Radios';
+import './style';
 
 export default function Form({addCar, colors, options}) {
+  
   return (
     <form onSubmit={(event) => {
       const { target } = event;
@@ -27,16 +30,19 @@ export default function Form({addCar, colors, options}) {
         <TextInput name="price" id="price" label="Цена" required/>
         <TextInput name="year" id="year" label="Год" required/>
       </div>
-      <TextInput textarea name="description" id="description" label="Описание"/>
+      <TextInput textarea modifier="long" name="description" id="description" label="Описание"/>
       <div className="select-row">
-        <div className="color-radios">
-          {
-            colors && colors.map((color, key) => 
-            <Checkbox type="radio" required native className="color-radio" key={key} value={color} name="color" id={color} label/>)
-          }
+        <div className="colors">
+          <p className="colors__label">Цвет</p>
+          <Radios className="color-radios">
+            {
+              colors && colors.map((color, key) => 
+              <Checkbox type="radio" required className="color-radio" key={key} value={color} name="color" id={color} label/>)
+            }
+          </Radios>
         </div>
         <Select name="status" id="status" options={options}/>
-        <button>отправить &gt;</button>
+        <button className="send">отправить &gt;</button>
       </div>
     </form>
   );
