@@ -1,5 +1,5 @@
 @import '../../../style/helpers/mixins';
-@import '../../../style/helpers/functions.scss';
+@import '../../../style/helpers/functions';
 form {
   padding: 0 get4BasedSize(4);
 }
@@ -8,6 +8,7 @@ form {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  align-items: center;
   .text-input {
     flex-basis: 48%;
     @include child(1) {
@@ -25,10 +26,16 @@ form {
 .select-row {
   .colors {
     flex-basis: 100%;
+    @include responsive(tablet) {
+      flex-basis: 32%;
+    }
     &__label {
       margin: 0 0 get4BasedSize(2);
     }
     .color-radios {
+      @include responsive(tablet) {
+        width: 80%;
+      }
       width: 50%;
       display: flex;
       justify-content: space-between;
@@ -38,6 +45,9 @@ form {
   .select,
   .send {
     flex-basis: 48%;
+    @include responsive(tablet) {
+      flex-basis: 32%;
+    }
     padding: get4BasedSize(4) 0;
   }
   .select {
@@ -61,6 +71,9 @@ form {
     border-radius: 50%;
     width: get4BasedSize(5);
     height: get4BasedSize(5);
+    &--checked {
+      box-shadow: 0 0 0 4px rgba(0,0,0,.75);
+    }
   }
 }
 

@@ -1,8 +1,16 @@
+@import '../../../style/helpers/mixins';
+@import '../../../style/helpers/functions';
 .cars {
   width: 100%;
   border-collapse: collapse;
   td {
     font-size: 16px;
+    @include child(1) {
+      width: 50%;
+    }
+    @include child(1, 'not') {
+      text-align: center;
+    }
   }
   &__caption {
     background-color: #c4092f;
@@ -10,6 +18,57 @@
     text-align: center;
     td {
       padding: 16px 0;
+    }
+  }
+}
+
+.car {
+  background-color: #f5f6f6;
+  padding: get4BasedSize(5);
+  border-bottom: get4BasedSize(.5) solid #e3e4e4;
+  &-row-top,
+  &-row-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__descr {
+    padding: get4BasedSize(3) 0;
+    color: #a7aeb0;
+  }
+  &__title {
+    @include responsive(tablet) {
+      padding: get4BasedSize(4) 0 0;
+    }
+    flex-basis: 60%;
+  }
+  &__color {
+    display: block;
+    margin: 0 auto;
+    border: 1px solid #a7aeb0;
+    flex-basis: get4BasedSize(5);
+    width: get4BasedSize(5);
+    height: get4BasedSize(5);
+    border-radius: 50%;
+  }
+  &__price {
+    flex-basis: 25%;
+    text-align: right;
+  }
+  &__del {
+    padding: get4BasedSize(3);
+    background-color: #282d30;
+    color: #ffffff;
+    border: none;
+    border-radius: get4BasedSize(5);
+    &--tablet {
+      background-color: transparent;
+      color: #a7aeb0;
+      transition: all .32s ease-in;
+      &:hover {
+        background-color: #282d30;
+        color: #ffffff;
+      }
     }
   }
 }

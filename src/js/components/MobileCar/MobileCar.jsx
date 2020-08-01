@@ -16,7 +16,7 @@ export default function MobileCar({car, delCar}) {
       <div className="car-row-top">
         <p className="car__title">{title}</p>
         <span className='car__color' style={{backgroundColor: color}}></span>
-        <p className="car__price">{price}</p>
+        <p className="car__price">{price} руб.</p>
       </div>
       <p className="car__descr">{description}</p>
       <div className="car-row-bottom">
