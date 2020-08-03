@@ -112,7 +112,6 @@ form {
     transition: all .32s ease-in;
     &--focus {
       border-bottom-color: darken($color: #dcdcdc, $amount: 30);
-      border-bottom-width: get4BasedSize();
     }
   }
 }
